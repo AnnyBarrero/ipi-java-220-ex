@@ -1,6 +1,6 @@
 package com.ipiecoles.java.java220;
 
-import com.ipiecoles.java.java220.exceptions.TechnicienException;
+//import com.ipiecoles.java.java220.exceptions.TechnicienException;
 import org.joda.time.LocalDate;
 
 import java.util.HashSet;
