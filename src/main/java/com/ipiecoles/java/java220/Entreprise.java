@@ -11,6 +11,6 @@ public class Entreprise {
     public static final Double PRIME_ANCIENNETE = 100d;
 
     public static Double primeAnnuelleBase(){
-        return LocalDate.now().getYear() / 2d; //*0.5 ou / 2.0
+        return LocalDate.now().getYear() * 0.5; //*2d ou / 2.0
     }
 }

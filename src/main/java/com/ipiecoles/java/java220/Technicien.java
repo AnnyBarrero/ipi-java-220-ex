@@ -8,12 +8,21 @@ import java.util.Objects;
 public class Technicien extends Employe implements Comparable<Technicien>{
 
     private Integer grade;
-    public Technicien(){}
 
     public Technicien (String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, Integer grade) throws TechnicienException{
         super(nom, prenom, matricule, dateEmbauche, salaire);
         this.grade = grade;
     }
+
+    public Double getPrimeAnnuelle(){
+        Double primeAnnuelleBase = Entreprise.primeAnnuelleBase();
+        return primeAnnuelleBase + primeAnnuelleBase * ((double)grade / 10 )+ Entreprise.PRIME_ANCIENNETE * this.getNombreAnneeAnciennete();
+    }
+    public Integer getNbConges(){
+
+        return super.getNbConges() + this.getNombreAnneeAnciennete();
+    }
+
 
     public Integer getGrade() {
         return grade;
@@ -35,16 +44,10 @@ public class Technicien extends Employe implements Comparable<Technicien>{
         super.setSalaire(salaire * (1+ (double) grade / 10));
     }
 
-    @Override
-    public Integer getNbConges(){
-        return super.getNbConges() + this.getNombreAnneeAnciennete();
-    }
+   // @Override
 
-    @Override
-    public Double getPrimeAnnuelle(){
-        Double primeAnnuelleBase = Entreprise.primeAnnuelleBase();
-        return primeAnnuelleBase + primeAnnuelleBase * ((double)grade / 10 )+ Entreprise.PRIME_ANCIENNETE * this.getNombreAnneeAnciennete();
-    }
+   // @Override
+
 
     @Override
     public int hashCode() {
