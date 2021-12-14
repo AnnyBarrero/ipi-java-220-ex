@@ -1,5 +1,7 @@
 package com.ipiecoles.java.java220;
 
+import org.joda.time.LocalDate;
+
 public class Entreprise {
     //const de classes
     public static final Double SALAIRE_BASE = 1480.27;
@@ -7,4 +9,8 @@ public class Entreprise {
     public static final Double INDICE_MANAGER = 1.3;
     public static final Double PRIME_MANAGER_PAR_TECHNICIEN = 250.0;
     public static final Double PRIME_ANCIENNETE = 100d;
+
+    public static Double primeAnnuelleBase(){
+        return LocalDate.now().getYear() / 2d; //*0.5 ou / 2.0
+    }
 }
